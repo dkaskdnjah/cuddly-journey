@@ -1,9 +1,9 @@
 <template>
 	<view class="index">
 		<view class="cover"></view>
-		<view class="content margin">
+		<view class="content margin" @click="toLogin">
 			<image class="logo" src="/static/logo.png"></image>
-			<text class="margin-bottom-xs">张三丰</text>
+			<text class="margin-bottom-xs">{{name}}</text>
 			<view class="flex grid flex-wrap">
 				<view class="text-area flex flex-direction align-center margin-xs" v-for="item in caseList">
 					<text :class="['iconfont', item.icon, 'margin-bottom-xs']"></text>
@@ -21,6 +21,12 @@
 	export default {
 		components: {
 			// detail,
+		},
+		computed: {
+			name() {
+				const { userInfo } = this.$store.state.user;
+				return userInfo ? userInfo.username : '未登录'
+			}
 		},
 		data() {
 			return {
@@ -56,7 +62,11 @@
 
 		},
 		methods: {
-
+			toLogin() {
+				uni.navigateTo({
+					url:'../kitty-BasicLogin/login'
+				})
+			}
 		}
 	}
 </script>

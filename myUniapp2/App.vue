@@ -1,7 +1,8 @@
 <script>
 	export default {
 		onLaunch: function() {
-			console.log('App Launch')
+			const userInfo =  uni.getStorageSync("userInfo");
+			this.$store.commit("SET_USERINFO", userInfo);
 		},
 		onShow: function() {
 			console.log('App Show')

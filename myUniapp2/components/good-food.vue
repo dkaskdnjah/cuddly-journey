@@ -2,7 +2,7 @@
 	<view class="flex flex-wrap justify-between padding-sm
 	
 	">
-		<view class="goodFood" v-for="item in goodFoodData">
+		<view class="goodFood" v-for="item in goodFoodData" @click="toDetail(item)">
 			<image :src="item.img" mode=""></image>
 			<view class="margin-xs">
 				<view class="flex align-center justify-between margin-bottom-xs">
@@ -35,6 +35,14 @@
 				
 			};
 		},
+		methods: {
+			toDetail(item) {
+					console.log(item);
+					uni.navigateTo({
+						url: '/pages/detail/detail?detailData=' + JSON.stringify(item) 
+					})
+			}
+		}
 	}
 </script>
 

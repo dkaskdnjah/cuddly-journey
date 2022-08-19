@@ -15,7 +15,7 @@
 						</view>
 					</view>
 					<view class="gouwuche">
-						<text class="iconfont icon-Smile"></text>
+						<text @click.stop="handleAdd(item)" class="iconfont icon-Smile"></text>
 					</view>
 				</view>
 				<view class="">
@@ -41,6 +41,9 @@
 					uni.navigateTo({
 						url: '/pages/detail/detail?detailData=' + JSON.stringify(item) 
 					})
+			},
+			handleAdd(item) {
+				this.$store.commit("cart/SET_ADDCARTLIST", { allObj: item, idx: 0 })
 			}
 		}
 	}

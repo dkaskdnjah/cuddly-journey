@@ -39,13 +39,14 @@
 		</view>
 		
 		<view class="bottomBtn padding-tb-sm flex">
-			<button class="cu-btn bg-brown btnButton margin-lr-xs">加入购物车</button>
+			<button @click="handleAdd({allObj: detailData, idx})" class="cu-btn bg-brown btnButton margin-lr-xs">加入购物车</button>
 			<button class="cu-btn bg-yellow btnButton margin-lr-xs">立即购买</button>
 		</view>
 	</view>
 </template>
 
 <script>
+	import { mapMutations } from 'vuex'
 	export default {
 		onLoad(prop) {
 			this.detailData = JSON.parse(prop.detailData);
@@ -57,7 +58,9 @@
 			}
 		},
 		methods: {
-			
+			...mapMutations(({
+				handleAdd: 'cart/SET_ADDCARTLIST'
+			}))
 		}
 	}
 </script>

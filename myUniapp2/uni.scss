@@ -65,7 +65,14 @@ $uni-text-color-disable:#c0c0c0;
 }
 
 .color-yellow {
-	color: #fae456;
+	color: #fae456 !important; 
+}
+.fixed {
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	box-shadow: 0 0 10upx 2upx rgba(0, 0, 0, 0.2);
 }
 
 .bg-fff {

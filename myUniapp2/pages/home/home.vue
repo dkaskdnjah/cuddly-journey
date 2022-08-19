@@ -103,7 +103,7 @@
 				},{
 					name: '购物车',
 					bcid: '',
-					target: '',
+					target: '/pages/cart/cart',
 				}],
 				bcid: 1, 
 				popupShow: false,
@@ -166,6 +166,12 @@
 				}
 				if (!bcid && !target) {
 					this.popupShow = true;
+				}
+				
+				if (!bcid && target) {
+					uni.navigateTo({
+						url: target
+					})
 				}
 			},
 			getClassifyData() {

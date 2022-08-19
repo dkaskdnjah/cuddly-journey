@@ -8,7 +8,7 @@
 			</view>
 			<view class="cartRight">
 				<view class="flex justify-between">
-					<view class="">
+					<view class=""> 
 						{{item.name}}
 						<view class="margin-tb-xs">
 							{{item.french}}

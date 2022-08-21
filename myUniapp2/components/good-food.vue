@@ -1,8 +1,6 @@
 <template>
-	<view class="flex flex-wrap justify-between padding-sm
-	
-	">
-		<view class="goodFood" v-for="item in goodFoodData" @click="toDetail(item)">
+	<view class="flex flex-wrap justify-between padding-sm">
+		<view class="goodFood" v-for="item in goodFoodData" @click="toDetail(item)" :key="item">
 			<image :src="item.img" mode=""></image>
 			<view class="margin-xs">
 				<view class="flex align-center justify-between margin-bottom-xs">
@@ -15,7 +13,7 @@
 						</view>
 					</view>
 					<view class="gouwuche">
-						<text @click.stop="handleAdd(item)" class="iconfont icon-Smile"></text>
+						<text @click.stop="handleAdd(item)" class="iconfont icon-gouwuchekong"></text>
 					</view>
 				</view>
 				<view class="">
@@ -39,7 +37,7 @@
 			toDetail(item) {
 					console.log(item);
 					uni.navigateTo({
-						url: '/pages/detail/detail?detailData=' + JSON.stringify(item) 
+						url: '/sub_packages/detail/detail?detailData=' + JSON.stringify(item) 
 					})
 			},
 			handleAdd(item) {

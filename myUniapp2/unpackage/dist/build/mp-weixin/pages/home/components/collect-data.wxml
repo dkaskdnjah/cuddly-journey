@@ -1,0 +1,1 @@
+<view><button type="default" data-event-opts="{{[['tap',[['handleBanner',['$event']]]]]}}" bindtap="__e">转录轮播</button><button type="default" data-event-opts="{{[['tap',[['handleGoods',['$event']]]]]}}" bindtap="__e">转录商品</button></view>

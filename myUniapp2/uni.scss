@@ -27,10 +27,23 @@ $uni-text-color-grey:#999;//辅助灰色，如加载更多的提示信息
 $uni-text-color-placeholder: #808080;
 $uni-text-color-disable:#c0c0c0;
 
-@import '/colorui/main.css';
-@import '/colorui/icon.css';
-@import '/static/iconfont/iconfont.css';
-@import  '@/uni_modules/uview-ui/theme.scss';
+	@import '@/uni_modules/uview-ui/theme.scss';
+
+.fs-38{
+	font-size: 30upx !important;
+}
+
+.fs-36{
+	font-size: 30upx !important;
+}
+
+.fs-34{
+	font-size: 30upx !important;
+}
+
+.fs-32{
+	font-size: 30upx !important;
+}
 
 .fs-30{
 	font-size: 30upx !important;
@@ -58,6 +71,10 @@ $uni-text-color-disable:#c0c0c0;
 }
 .fs-14{
 	font-size: 14upx !important;
+}
+
+.color-7f7f7f{
+	color: #7f7f7f;
 }
 
 .color-fff {

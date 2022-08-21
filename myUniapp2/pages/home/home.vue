@@ -8,11 +8,11 @@
 			
 			<!-- 轮播区域 -->
 			<swiper class="banner" :indicator-dots="true" :autoplay="true" indicator-active-color="yellow">
-				<swiper-item v-for="item in bannerData" :key="item.objectId">
+				<swiper-item v-for="item in 3">
 					<!-- link 使用欣纬前端启的2.7H5项目地址 -->
 					<view class="swiper-item" @click="bannerHandle(item.link)">
 						<!-- img 使用node启的 express.static 访问静态资源  -->
-						<image :src="item.img" mode=""></image>
+						<image src="http://lc-B0CeFVGF.cn-n1.lcfile.com/LXNAkEQfNCwLXbhCugfVqrYA2jpfTwf6/banner.jpg" mode=""></image>
 					</view>
 				</swiper-item>
 			</swiper>
@@ -21,12 +21,14 @@
 			
 			<!-- 滑动区域 -->
 			<scroll-view scroll-x="true" class="scrollImage">
-				<image src="../../static/logo.png" mode="heightFix"></image>
-				<image src="../../static/logo.png" mode="heightFix"></image>
-				<image src="../../static/logo.png" mode="heightFix"></image>
+				<image src="http://lc-B0CeFVGF.cn-n1.lcfile.com/Jq7Bhm1xlDUFukMV8tEiO2AF9RrJkY20/recommend1.jpeg" mode="heightFix"></image>
+				<image src="http://lc-B0CeFVGF.cn-n1.lcfile.com/0irvWDkzBntf6algvwdBlDakBsR74Qkw/recommend2.jpg" mode="heightFix"></image>
+				<image src="http://lc-B0CeFVGF.cn-n1.lcfile.com/xJEV4aFD9oTsiVJi5NHpdLYS6f3zKSNz/recommend3.jpg" mode="heightFix"></image>
 			</scroll-view>
 			
 			<title-block :title-data="titleData1"></title-block>
+			
+			<image style="width: 100%;height: 400upx" src="http://lc-B0CeFVGF.cn-n1.lcfile.com/spBcUT8HvagECQvgH9G6w2L9WHJatFAt/french.jpg" mode=""></image>
 			
 			<!-- 商品列表 -->
 			<good-food :good-food-data="goodFoodData"></good-food>
@@ -34,34 +36,8 @@
 			<view class="scrollTop" v-if="isShow" @click="scrollTopHandle">
 				<text class="iconfont icon-bianji"></text>
 			</view>
-			
-			<!-- 底部跳转区域 -->
-			<view class="footer flex padding-xm bg-cyan justify-center align-center">
-				<view class="flex align-center" @click="handleGood(item)" v-for="(item, index) in tabArr">
-					{{item.name}}
-					<u-line v-if="index !== tabArr.length - 1" direction="col" length="20" color="#ccc" margin="30upx"></u-line>
-				</view>
-			</view>
+			<tab-custom></tab-custom>
 		</scroll-view>
-		
-		<u-popup :show="popupShow" mode="left"  @close="popupShow = false">
-		    <view class="popupStyle">
-		        <view :class="['padding-top', {'u-border-bottom': index!==0 }]" v-for="(item, index) in classifyList">
-					<view class="padding-bottom padding-left">{{item.bname}}</view> 
-					<view class="u-border-top" v-if="index === 0">
-							<view @click="listShow = !listShow" :class="['padding-tb-sm', 'padding-left', {'u-border-bottom': !listShow }]">口味筛选</view> 
-							<u-cell-group v-if="listShow" class="padding-left">
-								<u-cell @click="handleItem(kouwei, 1)" v-for="(kouwei,index) in item.list" icon="setting-fill" :title="kouwei.tname" isLink></u-cell>
-							</u-cell-group>
-							<view @click="sceneShow = !sceneShow" :class="['padding-tb-sm', 'padding-left', {'u-border-bottom': !sceneShow }]">场景筛选</view> 
-							<u-cell-group v-if="sceneShow" class="padding-left">
-								<u-cell @click="handleItem(changjing, 2)" v-for="(changjing,index) in item.scene" icon="setting-fill" :title="changjing.tname" isLink></u-cell>
-							</u-cell-group>
-					</view>
-		        </view>
-		    </view>
-		</u-popup>
-		
 	</view>
 </template>
 
@@ -70,45 +46,21 @@
 		data() {
 			return {
 				titleData: {
-					title: '早上好啊',
-					smTitle: 'good morning',
-					sdTitle: 'morning',
+					title: '本季',
+					smTitle: '推荐',
+					sdTitle: 'Seasonal Recommend',
 				},
 				titleData1: {
-					title: '下午好啊',
-					smTitle: 'good afternoon',
-					sdTitle: 'afternoon',
+					title: '法式',
+					smTitle: '经典',
+					sdTitle: 'French Classics',
 				},
 				isShow: false,
 				intoView: '',
 				bannerData: [],
 				goodFoodData: [],
 				page: 0,
-				tabArr: [{
-					name: '分类',
-					bcid: '',
-					target: '',
-				},{
-					name: '面包',
-					bcid: '11',
-					target: '',
-				},{
-					name: '小食',
-					bcid: '6',
-					target: '',
-				},{
-					name: '蛋糕',
-					bcid: '1',
-					target: '',
-				},{
-					name: '购物车',
-					bcid: '',
-					target: '/pages/cart/cart',
-				}],
 				bcid: 1, 
-				popupShow: false,
-				classifyList: [],
-				listShow: false,
 				sceneShow: false,
 			}
 		},
@@ -162,7 +114,9 @@
 					this.$store.commit('SET_COND', {
 						bcid: Number(bcid)
 					})
-					this.reLoadData();
+					uni.navigateTo({
+						url: target
+					})
 				}
 				if (!bcid && !target) {
 					this.popupShow = true;
@@ -208,6 +162,7 @@
 			overflow-y: initial;
 			min-height: 100vh;
 			padding: 100upx 0 70upx;
+			background-color: white;
 		}
 .scrollCont{
 	height: 100vh;
@@ -225,6 +180,7 @@
 	.scrollImage{
 		white-space: nowrap;
 		image{
+			width: 200upx;
 			height: 290upx;
 		}
 	}

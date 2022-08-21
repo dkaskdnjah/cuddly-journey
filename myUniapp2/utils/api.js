@@ -27,9 +27,19 @@ const $post = (url, data) => {
 	return $http(url,'POST', data)
 }
 
+const $put = (url, data) => {
+	return $http(url,'PUT', data)
+}
+
+const $delete = (url, data) => {
+	return $http(url,'DELETE', data)
+}
+
 export default {
 	$http,
 	$get,
-	$post
+	$post,
+	$put,
+	$delete
 }
 

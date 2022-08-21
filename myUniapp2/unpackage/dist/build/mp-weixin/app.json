@@ -1,15 +1,38 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/home/home"
+    "pages/home/home",
+    "pages/home/components/banner-ad",
+    "pages/home/components/collect-data"
   ],
-  "subPackages": [],
+  "subPackages": [
+    {
+      "root": "sub_packages",
+      "pages": [
+        "kitty-BasicLogin/login",
+        "kitty-BasicLogin/registration",
+        "index/index",
+        "detail/detail",
+        "cart/cart",
+        "order/order",
+        "address/address",
+        "address/address-detail",
+        "cake/cake",
+        "bread/bread",
+        "food/food"
+      ]
+    }
+  ],
   "window": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "uni-app",
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#F8F8F8"
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap.json"
+  "usingComponents": {
+    "detail": "/components/detail",
+    "nav-custom": "/components/nav-custom",
+    "title-block": "/pages/home/components/title-block",
+    "good-food": "/components/good-food",
+    "tab-custom": "/components/tab-custom"
+  }
 }

@@ -1,16 +1,17 @@
 <template>
 	<view class="padding flex justify-between align-center margin-xs">
 		<view class="flex align-center">
-			<text class="iconfont icon-cangpeitubiao_xiayi margin-right"></text>
-			<view class="fs-28">
-				{{titleData.title}}
-				<view class="fs-14">
-					{{titleData.smTitle}}
+			<image class="imgIcon margin-right-lg" src="https://h5.mcake.com/static/images/icon_cj.png" mode="widthFix"></image>
+			<view class="fs-36">
+				<text style="font-weight: 600">{{titleData.title}}</text>
+				{{titleData.smTitle}}
+				<view class="fs-14 color-7f7f7f">
+					{{titleData.sdTitle}}
 				</view>
 			</view>
 		</view>
 		<view class="">
-			{{titleData.sdTitle}}
+			<!-- {{titleData.sdTitle}} -->
 		</view>
 	</view>
 </template>
@@ -32,5 +33,8 @@
 <style lang="scss">
 .icon-notConnected{
 	font-size: 60upx;
+}
+.imgIcon{
+	width: 130upx;
 }
 </style>

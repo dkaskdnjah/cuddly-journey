@@ -3,6 +3,7 @@ import Vuex from "vuex"
 import condition from './condition.js'
 import user from './user.js'
 import cart from './cart.js'
+import address from './address'
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
@@ -10,6 +11,7 @@ const store = new Vuex.Store({
 		condition,
 		user,
 		cart,
+		address,
 	}
 })
 

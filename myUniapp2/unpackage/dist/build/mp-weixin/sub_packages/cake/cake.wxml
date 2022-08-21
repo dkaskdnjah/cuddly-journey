@@ -1,0 +1,1 @@
+<view><good-food vue-id="cbf83468-1" good-food-data="{{goodFoodData}}" bind:__l="__l"></good-food></view>

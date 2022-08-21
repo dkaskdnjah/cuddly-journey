@@ -21,6 +21,9 @@ Vue.component('title-block',titleBlock)
 import goodFood from './components/good-food.vue'
 Vue.component('good-food',goodFood)
 
+import tabCustom from './components/tab-custom'
+Vue.component('tab-custom',tabCustom)
+
 import request from './utils/api.js'
 for (let key in request) {
 	Vue.prototype[key] = request[key]
